@@ -1,0 +1,167 @@
+body {
+    background-color: #5c4084;
+    padding: 25px;
+}
+
+
+.heading {
+    text-align: center;
+}
+
+.heading h1 {
+    background: -webkit-linear-gradient(#fff, #8f70ba);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    text-align: center;
+    margin: 0 0 5px 0;
+    font-weight: 900;
+    font-size: 4rem;
+    color: #fff;
+}
+
+.heading h4 {
+    color: #8f70ba;
+    text-align: center;
+    margin: 0 0 35px 0;
+    font-weight: 400;
+    font-size: 24px;
+}
+
+/* demo ��ʼ */
+.container {
+    padding: 6px;
+    background-color: #fff;
+    border-radius: 8px;
+    max-width: 800px;
+    box-shadow: 0 5px 8px #0000007a;
+    margin-bottom: 10px;
+
+}
+
+.upload {
+    text-align:center;
+    padding: 6px;
+    background-color: transparent;
+    border-radius: 8px;
+}
+.vueGallery .activePhoto {
+    width: 100%;
+    margin-bottom: 5px;
+    padding-bottom: 65%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 2px solid #fff;
+    position: relative;
+}
+
+.vueGallery .activePhoto button {
+    border: none;
+    background-color: transparent;
+    font-size: 32px;
+    color: #fff;
+    opacity: 0.5;
+    position: absolute;
+    outline: none;
+    height: 100%;
+}
+
+.vueGallery .activePhoto button:hover {
+    opacity: 1;
+}
+
+.vueGallery .activePhoto button.previous {
+    padding: 0 1em 0 0.7em;
+    left: 0;
+    background: -moz-linear-gradient(left, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 100%);
+    background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 100%);
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80000000', endColorstr='#00000000', GradientType=1);
+}
+
+.vueGallery .activePhoto button.next {
+    padding: 0 0.7em 0 1em;
+    right: 0;
+    background: -moz-linear-gradient(left, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
+    background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
+    background: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#80000000', GradientType=1);
+}
+
+.vueGallery .thumbnails {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    grid-gap: 5px;
+}
+
+.vueGallery .thumbnails div {
+    width: 100%;
+    border: 2px solid #fff;
+    outline: 2px solid #fff;
+    cursor: pointer;
+    padding-bottom: 65%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 1;
+}
+
+.vueGallery .thumbnails div:hover {
+    opacity: 0.6;
+}
+
+.vueGallery .thumbnails div.active {
+    outline-color: #5c4084;
+    opacity: 1;
+}
+
+.el-upload__input {
+    display: none!important;
+}
+
+.tags-wrap {
+    width: 100%;
+    height: 100%;
+    outline: none;
+}
+
+.tags-wrap::after {
+    content: "";
+    display: block;
+    height: 0;
+    clear: both;
+}
+
+.tags, .tags-input {
+    position: relative;
+    float: left;
+    color: #fff;
+    line-height: 28px;
+    margin: 0 4px 4px 0;
+    padding: 0 22px 0 10px;
+    border-radius: 6px;
+}
+
+.tags .tags-input, .content {
+    line-height: 28px;
+}
+
+.del {
+    width: 22px;
+    height: 28px;
+    text-align: center;
+    cursor: pointer;
+    position: absolute;
+    top: -1px;
+    right: 0;
+}
+
+
+.tags-input {
+    font-size: 14px;
+    padding: 0;
+    background-color: inherit;
+    border: none;
+    color: inherit;
+    width: 10em;
+}

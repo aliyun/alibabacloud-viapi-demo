@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>VIAPI</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 mx-auto">
+                <h2>VIAPI RecognizeIdentityCard Example</h2>
+                <div class="col-sm-12">
+                    <p th:text="${message}" th:if="${message ne null}" class="alert alert-primary"></p>
+                </div>
+                <form method="post" th:action="@{/upload}" enctype="multipart/form-data">
+                    <div class="col-sm-4">
+                        <div class="input-group">
+                            <input id='location' class="form-control" onclick="$('#i-face').click();">
+                            <label class="input-group-btn">
+                                <input type="button" id="i-check" value="上传人像面" class="btn btn-primary" onclick="$('#i-face').click();">
+                            </label>
+                        </div>
+                    </div>
+                    <input type="file" name="face" id='i-face'  accept=".jpg, .png, .jpeg" onchange="$('#location').val($('#i-face').val());" style="display: none">
+                    <div class="col-sm-4">
+                        <div class="input-group">
+                            <input id='location1' class="form-control" onclick="$('#i-back').click();">
+                            <label class="input-group-btn">
+                                <input type="button" id="i-check-1" value="上传国徽面" class="btn btn-primary" onclick="$('#i-back').click();">
+                            </label>
+                        </div>
+                    </div>
+                    <input type="file" name="back" id='i-back'  accept=".jpg, .png, .jpeg" onchange="$('#location1').val($('#i-back').val());" style="display: none">
+                    <div class="col-sm-4">
+                        <button type="submit" class="btn btn-primary">开始识别</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+
+        <div class="row" style="margin-top: 30px;">
+            <div class="col-md-12 mx-auto">
+                <div class="col-sm-4">
+                    <img style="width: 100%;" th:src="${faceImage}" th:if="${faceImage ne null}" class="img-fluid" alt=""/>
+                </div>
+                <div class="col-sm-4">
+                    <img style="width: 100%;" th:src="${backImage}" th:if="${backImage ne null}" class="img-fluid" alt=""/>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="margin-top: 30px;">
+            <div class="col-md-12 mx-auto">
+                <div class="col-sm-4">
+                    <p th:if="${faceResult ne null}"><span>姓名：</span><span th:text="${faceResult.name}"></span></p>
+                    <p th:if="${faceResult ne null}"><span>性别：</span><span th:text="${faceResult.gender}"></span></p>
+                    <p th:if="${faceResult ne null}"><span>民族：</span><span th:text="${faceResult.nationality}"></span></p>
+                    <p th:if="${faceResult ne null}"><span>出生日期：</span><span th:text="${faceResult.birthDate}"></span></p>
+                    <p th:if="${faceResult ne null}"><span>住址：</span><span th:text="${faceResult.address}"></span></p>
+                    <p th:if="${faceResult ne null}"><span>身份证号码：</span><span th:text="${faceResult.IDNumber}"></span></p>
+                </div>
+                <div class="col-sm-4">
+                    <p th:if="${backResult ne null}"><span>签发机关：</span><span th:text="${backResult.issue}"></span></p>
+                    <p th:if="${backResult ne null}"><span>有效日期：</span><span th:text="${backResult.startDate}"></span>~<span th:text="${backResult.endDate}"></span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

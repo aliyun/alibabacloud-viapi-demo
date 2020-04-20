@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html lang="en" >
+<head>
+<meta charset="UTF-8">
+<title>智能电子相册</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!--可无视-->
+<link rel='stylesheet' href='css/bootstrap.min.css'>
+
+<!--图标库-->
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css'>
+
+<!--核心样式-->
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+
+</head>
+<body >
+<div id="appEvent">
+
+</div>
+
+<div class="heading" >
+	<h1>智能电子相册</h1>
+</div>
+
+<div  class="container">
+	<div class="upload" id="upload">
+		<el-upload
+				class="upload-demo"
+				drag
+				action="http://127.0.0.1:8080/album/v1/upload"
+				:on-success="uploadSuccess"
+				multiple>
+			<i class="el-icon-upload"></i>
+			<div class="el-upload__text">将文件拖到此处，或<em>点击上传</em></div>
+			<div class="el-upload__tip" slot="tip">只能上传jpg/png文件，且不超过500kb</div>
+		</el-upload>
+	</div>
+</div>
+
+
+<div class="container" id="app">
+	<vue-gallery :photos="photos"></vue-gallery>
+</div>
+
+
+<div class="container" id="my-custom-tags">
+	<v-tag :tags="tags"></v-tag>
+</div>
+
+
+<script src="js/script.js"></script>
+</body>
+</html>
